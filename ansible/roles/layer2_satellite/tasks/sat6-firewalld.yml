@@ -3,6 +3,7 @@
 - name: updating firewall rules
  # firewalld: port={{item.value.port}}/{{item.value.protocol}} permanent={{item.value.permanent}} state={{item.value.state }} zone={{item.value.zone}}
   firewalld: port={{item.port}}/{{item.protocol}} permanent={{item.permanent}} state={{item.state }} zone={{item.zone}}
+  firewalld: zone=internal
   with_items:  "{{ firewalld_rules }}"
   register: firewalld_conf_update
 
